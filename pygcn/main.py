@@ -14,7 +14,8 @@ def parse_args():
     parser.add_argument('--fastmode', action='store_true', default=False,
                         help='Validate during training pass.')
     parser.add_argument('--seed', type=int, default=42, help='Random seed.')
-    parser.add_argument('--epochs', type=int, default=300,
+    parser.add_argument('--dataset', type=str, default="cora", help='Dataset')
+    parser.add_argument('--epochs', type=int, default=200,
                         help='Number of epochs to train.')
     parser.add_argument('--lr', type=float, default=0.02,
                         help='Initial learning rate.')
@@ -24,6 +25,8 @@ def parse_args():
                         help='Number of hidden units.')
     parser.add_argument('--dropout', type=float, default=0.5,
                         help='Dropout rate (1 - keep probability).')
+    parser.add_argument('--model_type', type=int, default=0,
+                        help='Index to point to the model to use')
     args = parser.parse_args()
     args.cuda = not args.no_cuda and torch.cuda.is_available()
 
